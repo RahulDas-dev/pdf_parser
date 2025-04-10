@@ -2,10 +2,11 @@ from pydantic import DirectoryPath, Field
 from pydantic_settings import SettingsConfigDict
 
 from .database_conf import DatabaseConfig
+from .layout_conf import LayoutAnalyzerConfig
 from .toimage_conf import ToImageConfig
 
 
-class InjectionConfig(ToImageConfig, DatabaseConfig):
+class InjectionConfig(ToImageConfig, DatabaseConfig, LayoutAnalyzerConfig):
     """Injected configuration for the application."""
 
     OUTPUT_DIRECTORY: DirectoryPath = Field(description="Path to the output directory")
